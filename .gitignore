@@ -4,6 +4,11 @@
 # Advent of code private key
 private-key.txt
 
+# My files for input, testing, output
+**/input.txt
+**/test.txt
+**/out.txt
+
 # My executable file
 **/main.exe
 
