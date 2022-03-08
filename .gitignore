@@ -6,8 +6,12 @@ private-key.txt
 
 # My files for input, testing, output
 **/input.txt
-**/test.txt
+**/test*.txt
 **/out.txt
+
+# Make and Run batches
+**/make.bat
+**/run.bat
 
 # My executable file
 **/main.exe
