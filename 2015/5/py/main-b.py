@@ -36,10 +36,6 @@ def solve(raw_input):
 
   print(f"{count=}")
 
-# 51 is wrong
-# 52 is wrong
-# 53 is wrong
-# 59 is wrong
 
 def main(filename):
   # Read file and convert to ints
