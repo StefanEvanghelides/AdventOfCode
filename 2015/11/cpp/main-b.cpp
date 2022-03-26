@@ -204,10 +204,10 @@ void run(std::string_view filename)
     // rawInput.emplace_back(line);
 
     const std::string trimmedLine = trimmed(line);
-    // if (!trimmedLine.empty() && trimmedLine != "" && trimmedLine != "\n")
-    // {
+    if (!trimmedLine.empty() && trimmedLine != "" && trimmedLine != "\n")
+    {
       rawInput.emplace_back(trimmedLine);
-    // }
+    }
   }
 
   solve(rawInput);
