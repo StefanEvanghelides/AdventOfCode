@@ -16,7 +16,7 @@ def computeHappiness(arrangements: dict[str, dict[str,int]], indices: dict[int,s
     left: str = indices[leftIdx]
     right: str = indices[rightIdx]
 
-    # Find the happiness of the current person for the 2 neighbours
+    # Find the happiness of the current person for the 2 neighbours.
     happiness += arrangements[pers][left]
     happiness += arrangements[pers][right]
 
@@ -24,9 +24,9 @@ def computeHappiness(arrangements: dict[str, dict[str,int]], indices: dict[int,s
 
 
 def optimalArrangement(arrangements: dict[str, dict[str,int]]) -> int:
-  # Basically find all combinations and see which is the best
+  # Basically find all combinations and see which is the best.
 
-  # Give index numbers to the persons
+  # Give index numbers to the persons.
   indices: dict[int,str] = {}
   idx: int = 0
   for key in arrangements:
@@ -39,7 +39,7 @@ def optimalArrangement(arrangements: dict[str, dict[str,int]]) -> int:
   optimal: int = 0
   for perm in permutations(start):
     # print(f"{perm=}")
-    happiness = computeHappiness(arrangements, indices, perm)
+    happiness: int = computeHappiness(arrangements, indices, perm)
     if happiness > optimal:
       optimal = happiness
 
@@ -52,17 +52,17 @@ def solve(raw_input) -> None:
   arrangements: dict[str, dict[str,int]] = {}
   for inp in inputs:
     tokens = inp.split(' ')
-    # Guard: There should always be 12 elements
+    # Guard: There should always be 11 elements.
     if len(tokens) != 11:
       print(f"There are not 11 elements, but {len(tokens)}!")
       continue
 
-    # Determine the sign
+    # Determine the sign.
     sign: int = (tokens[2][0] == 'g') - (tokens[2][0] == 'l')
 
-    # Now fetch the numbers
+    # Now fetch the numbers.
     currentPerson: str = tokens[0]
-    otherPerson: str = tokens[10][:-1] # Remove the '.' at the end
+    otherPerson: str = tokens[10][:-1] # Remove the '.' at the end.
     unit: int = int(tokens[3])
 
     # Add the numbers to the arrangement
@@ -89,7 +89,7 @@ def solve(raw_input) -> None:
 
 
 def main(filename):
-  # Read file and convert to ints
+  # Read file and convert to ints.
   input = []
   with open(filename) as file:
     input = file.read()
@@ -97,7 +97,7 @@ def main(filename):
 
 if __name__ == '__main__':
 
-  # Simple argparse for the input
+  # Simple argparse for the input.
   parser = argparse.ArgumentParser()
   parser.add_argument("filename", type=str, nargs="?", default="input.txt",
         help="Enter the name of the file (default = input.txt)")
@@ -105,5 +105,5 @@ if __name__ == '__main__':
         help="If flag is set, the input is interactive")
   args = parser.parse_args()
 
-  # Run the program
+  # Run the program.
   main(args.filename)
