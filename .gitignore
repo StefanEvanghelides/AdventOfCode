@@ -1,20 +1,28 @@
 # VSCODE
-**/.vscode/*
+.vscode/*
 
 # Advent of code private key
 private-key.txt
 
 # My files for input, testing, output
-**/input.txt
-**/test*.txt
-**/out.txt
+input.txt
+input
+test*
+out*
 
 # Make and Run batches
-**/make.bat
-**/run.bat
+make.bat
+make.sh
+run.bat
+run.sh
 
-# My executable file
-**/main.exe
+# Executables
+main.exe
+prog
+*.exe
+*.out
+*.app
+*.class
 
 # Prerequisites
 *.d
@@ -43,8 +51,3 @@ private-key.txt
 *.la
 *.a
 *.lib
-
-# Executables
-*.exe
-*.out
-*.app
