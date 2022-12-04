@@ -13,6 +13,7 @@ out*
 # Make and Run batches
 make.bat
 make.sh
+jrun.sh
 run.bat
 run.sh
 
