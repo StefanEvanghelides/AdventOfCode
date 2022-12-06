@@ -4,12 +4,6 @@
 # Advent of code private key
 private-key.txt
 
-# My files for input, testing, output
-input.txt
-input
-test*
-out*
-
 # Make and Run batches
 make.bat
 make.sh
