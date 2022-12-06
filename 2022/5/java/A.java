@@ -24,7 +24,7 @@ public class A {
 
         // System.out.println("testing input...");
         // for (String inp : rawInput) {
-        //     System.out.println("Line: "  inp);
+        //     System.out.println("Line: " + inp);
         // }
 
         // First build the cranes 2D array.
