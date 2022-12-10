@@ -84,7 +84,7 @@ public class B {
     // - 2455 too low -> answer for someone else
     // no more feedback, that's not the right answer.
     // - 2456 no
-
+    // - 2471 yes: so solved with bad tricks...
     // - 2476 no
 
     private static final int MAX_TAILS = 9;
