@@ -4,7 +4,6 @@ import java.nio.file.Paths;
 
 public class A {
 
-    // Simple generic tree class, implemented as a struct.
     private static class Board {
         private int n;
         private int m;
