@@ -4,6 +4,10 @@ import copy
 import functools
 import heapq
 
+# TODO: Not solved!
+# Part (b) requires us to do debugging and working backwards.
+# Essentially find a value for RegA such that the output is the same as the program input.
+
 def get_combo_operand(regA: int, regB: int, regC: int, operand: int) -> int:
 	if operand == 4:
 		return regA
@@ -16,18 +20,7 @@ def get_combo_operand(regA: int, regB: int, regC: int, operand: int) -> int:
 	return operand
 
 
-def solve(raw_input: list[str]):
-	lines: list[str] = raw_input.split('\n')
-
-	regA: int = int(lines[0].split(": ")[1])
-	regB: int = int(lines[1].split(": ")[1])
-	regC: int = int(lines[2].split(": ")[1])
-
-	programs: list[int] = [int(x) for x in lines[4].split(": ")[1].split(",")]
-
-	print(f"{regA=}  {regB=}  {regC=}")
-	print(f"{programs=}")
-
+def run_program(regA: int, regB: int, regC: int, programs: list[int]):
 	n: int = len(programs)
 	output: list[str] = []
 	i: int = 0
@@ -36,6 +29,8 @@ def solve(raw_input: list[str]):
 		iter += 1
 		opcode = programs[i]
 		operand = programs[i+1]
+
+		print(f"{iter=} - {i=} -> ({opcode=}  {operand=}): before {regA=} ({str(bin(regA))[2:]})  {regB=} ({str(bin(regB))[2:]})  {regC=} ({str(bin(regC))[2:]})")
 
 		# Run program
 		if opcode == 0:
@@ -74,10 +69,28 @@ def solve(raw_input: list[str]):
 		# Go to the next opcode (skip the operand)
 		i += 2
 
+		print(f"  after: {regA=}  {regB=}  {regC=} -> {output=}")
+
 
 	print(f"Final: {regA=}  {regB=}  {regC=} -> {iter=}")
 	print(f"{output=}")
-	print(f"Output={(','.join(output))}")
+	print(f"{','.join(output)=}")
+	print(f"Len prog: {len(programs)}  len output: {len(output)}")
+
+
+def solve(raw_input: list[str]):
+	lines: list[str] = raw_input.split('\n')
+
+	regA: int = int(lines[0].split(": ")[1])
+	regB: int = int(lines[1].split(": ")[1])
+	regC: int = int(lines[2].split(": ")[1])
+
+	programs: list[int] = [int(x) for x in lines[4].split(": ")[1].split(",")]
+
+	print(f"{regA=}  {regB=}  {regC=}")
+	print(f"{programs=}")
+
+	run_program(regA, regB, regC, programs)
 
 
 def main(filename: str):
