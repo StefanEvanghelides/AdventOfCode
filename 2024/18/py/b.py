@@ -42,6 +42,8 @@ def min_dist(grid: list[list[str]]) -> int:
 		# If we reach here, it means that the current value is better than what we've seen, so re-assign.
 		distances[x][y] = dist
 
+		# NOTE: This looks like a simple Dijstra's, but there's a hidden heuristic:
+		# The order of DD elems are of such nature so that we facilitate the movements towards bottom-right.
 		for dd in DD:
 			x2, y2 = x + dd[0], y + dd[1]
 			if is_valid(distances, x2, y2, dist):
