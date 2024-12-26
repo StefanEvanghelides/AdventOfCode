@@ -4,9 +4,6 @@ import copy
 import functools
 import heapq
 
-# TODO: Not solved!
-# Part (b) requires us to do debugging and working backwards.
-# Essentially find a value for RegA such that the output is the same as the program input.
 
 def get_combo_operand(regA: int, regB: int, regC: int, operand: int) -> int:
 	if operand == 4:
