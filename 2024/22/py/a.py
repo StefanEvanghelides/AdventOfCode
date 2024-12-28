@@ -32,8 +32,6 @@ def solve(raw_input: list[str]):
 		res: int = compute_secret(val, iterations)
 		results[val] = res
 
-	#print(f"{results=}")
-
 	# Compute total
 	total: int = 0
 	for val in results.values():

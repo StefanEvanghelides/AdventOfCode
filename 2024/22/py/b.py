@@ -5,11 +5,12 @@ import copy
 import functools
 import heapq
 
-# For part (b) we need to keep track of the last 5 elements.
-# Note, task says 4, but we need the diffs, so we need to have the 5th also.
+# For part (b) we need to keep track of the last 4 elements (diffs).
 
-# We'll also store a cache of the following form:
-# list[digit (index=0->9), map<4-diff-tuple, count>]
+# The trick here is to realize that we can already compute scores and cache per tuple.
+# There are 19^4 (hence ~103k) possibilities, hence we can store all of them.
+# The important detail is to note that we can compute everything in one pass and
+# to be careful to stop checking the same pattern after it was seen the first time.
 
 scores_all: dict[(int,int,int,int),int] = {}
 
@@ -43,16 +44,10 @@ def compute_secret(val: int, iterations: int) -> int:
 				# First time seeing it, then add the value to the scores map
 				scores_first[tup] = curr_d
 
-			# if tup == (-2, 1, -1, 3):
-			# 	print(f"   TUPLE FOUND!  ")
-
 			# Slide values by 1
 			nums[0] = nums[1]
 			nums[1] = nums[2]
 			nums[2] = num4
-
-
-			#print(f"{res=}  {curr_d=}  {prev=}  {prev_d=}  {tup=}")
 
 
 		prev = res
@@ -80,9 +75,6 @@ def solve(raw_input: list[str]):
 		val: int = int(line)
 		res: int = compute_secret(val, iterations)
 		results[val] = res
-
-
-	#print(f"{results=}")
 
 	# Compute total
 	total: int = 0
